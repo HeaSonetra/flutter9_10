@@ -1,7 +1,8 @@
-import 'package:carousel_slider/carousel_options.dart';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:firstapp/model/CategoryModel.dart';
 import 'package:firstapp/model/ProductModel.dart';
+import 'package:firstapp/widget/bestSellerWidget.dart';
 import 'package:flutter/material.dart';
 
 class Homepage extends StatelessWidget {
@@ -12,6 +13,7 @@ class Homepage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Padding(
           padding: EdgeInsets.all(14),
           child: Column(
@@ -48,6 +50,7 @@ class Homepage extends StatelessWidget {
               ),
               SizedBox(height: 40),
               SingleChildScrollView(
+                
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -116,7 +119,7 @@ class Homepage extends StatelessWidget {
                   Text('See All',style: TextStyle(fontSize: 16,fontWeight: FontWeight.normal,color: Colors.amber),)
                 ],
               )
-            ,SizedBox(height: 30,),
+            ,
             GridView.builder(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
@@ -124,20 +127,18 @@ class Homepage extends StatelessWidget {
                 crossAxisCount: 2,
                 mainAxisSpacing: 10,
                 crossAxisSpacing: 10,
-                childAspectRatio: 1/1.7
+                childAspectRatio: 1/1.5
                 ), 
-                itemCount: 4,
-                itemBuilder: (context,index)=>Container(
-                      decoration: BoxDecoration(
-                          color: Colors.amber,
-                      ),
-                      
-                )
+                itemCount: listProduct.length,
+                itemBuilder: (context,index)=>bestSeller(context, listProduct[index])
               ) 
             ],
           ),
         ),
       ),
     );
+    
   }
+
+  
 }
