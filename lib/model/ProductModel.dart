@@ -5,7 +5,7 @@ class Productmodel {
   final int id;
   final String title;
   final double price;
-  final Image img;
+  final String img;
   final List preview;
   final double map;
   final int counter;
@@ -30,7 +30,7 @@ List<Productmodel> listProduct = [
     id: 1,
     title: 'Metting chhese pizza',
     price: 10,
-    img: Image(image: AssetImage('assets/pizza1.png')),
+    img: 'assets/pizza1.png',
     preview: [],
     map: 20,
     counter: 0,
@@ -41,7 +41,7 @@ List<Productmodel> listProduct = [
     id: 2,
     title: 'Shusi for you',
     price: 10,
-    img: Image(image: AssetImage('assets/shusi.png')),
+    img: 'assets/shusi.png',
     preview: [],
     map: 20,
     counter: 0,
@@ -52,18 +52,18 @@ List<Productmodel> listProduct = [
     id: 3,
     title: 'Lemom cat tea',
     price: 10,
-    img: Image(image: AssetImage('assets/drink.jpg')),
+    img:'assets/drink.jpg',
     preview: [],
     map: 20,
     counter: 0,
     calories: 30,
-    CategoryID: listCategory[0].id,
+    CategoryID: listCategory[1].id,
   ),
   Productmodel(
     id: 4,
     title: 'Berger a title calories',
     price: 10,
-    img: Image(image: AssetImage('assets/berger.png')),
+    img:'assets/berger.png',
     preview: [],
     map: 20,
     counter: 0,
