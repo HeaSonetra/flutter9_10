@@ -86,26 +86,8 @@ class _DetailpageState extends State<Detailpage> {
             Container(
               width: double.infinity,
               height: 120,
-              decoration: BoxDecoration(
-                color: Colors.amber
-              ),
               child: Row(
               children: [
-                // GridView.count(
-                //   scrollDirection: Axis.horizontal,
-                //   crossAxisCount: 3,
-                //   mainAxisSpacing: 10,
-                //   crossAxisSpacing: 10,
-                //   childAspectRatio: 1/1,
-                //   children: List.generate(widget.productmodel.size.length,(index)=>Container(
-                //       height: 100,
-                //       decoration: BoxDecoration(
-                        
-                //         color: const Color.fromARGB(255, 24, 18, 216)
-                //       ),
-                //     )
-                //   )
-                // ),
                 Expanded(
                   child: GridView.builder(
                     scrollDirection: Axis.horizontal,
@@ -117,10 +99,35 @@ class _DetailpageState extends State<Detailpage> {
                     ), 
                     itemCount: widget.productmodel.size.length,
                     itemBuilder: (context,index){
-                    return Container(
-                          decoration: BoxDecoration(
-                            color: Colors.lightBlue
-                          ),
+                    return GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          widget.productmodel.check_size=!widget.productmodel.check_size;
+                        });   
+                      },
+                      child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(12),
+                              border: Border.all(width: 1,color: Colors.grey)
+                            ),
+                            child: Column(
+                              children: [
+                                SizedBox(height: 16,),
+                                Container(
+                                  width: 20,
+                                  height: 20,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    border: Border.all(width: 1,color:(widget.productmodel.check_size==false)?Colors.grey:Colors.red),
+                                    color:(widget.productmodel.check_size==false)?Colors.grey:Colors.red
+                                  ),
+                                ),
+                                SizedBox(height: 10,),
+                                Text('${widget.productmodel.size[index]}')
+                              ],
+                            ),
+                      ),
                     );
                   }),
                 )
