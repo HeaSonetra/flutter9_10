@@ -23,7 +23,7 @@ Widget bestSeller(BuildContext context,Productmodel listProduct){
                             ),
                             SizedBox(height: 10,),
                             Text(
-                              '\$${listProduct.price}',
+                              '\$${listProduct.sizeOption[0]["price"]}',
                               style: TextStyle(fontSize: 18,fontWeight: FontWeight.w400,color: Colors.grey),
                             ),
                             

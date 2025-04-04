@@ -4,29 +4,27 @@ import 'package:flutter/material.dart';
 class Productmodel {
   final int id;
   final String title;
-  final double price;
   final String img;
-  final List size;
+  final List<Map<String, dynamic>> sizeOption;
   final double map;
   final int counter;
   final double calories;
   final String decription;
   final double rate;
-   bool check_size;
+  int selectSizeIndex;
   final int CategoryID;
 
   Productmodel({
     required this.id,
     required this.title,
-    required this.price,
     required this.img,
-    required this.size,
+    required this.sizeOption,
     required this.map,
     required this.counter,
     required this.calories,
     required this.decription,
     required this.rate,
-    required this.check_size,
+    this.selectSizeIndex = -1,
     required this.CategoryID,
   });
 }
@@ -34,30 +32,35 @@ class Productmodel {
 List<Productmodel> listProduct = [
   Productmodel(
     id: 1,
-    title: 'Metting chhese pizza',
-    price: 10,
-    img: 'assets/pizza1.png',
-    size: ['Small','Mediem'],
+    title: 'Berger',
+    img: 'assets/berger.png',
+    sizeOption: [
+      {"size": "small", "price": 8.99},
+      {"size": "Mediem", "price": 9.99},
+      {"size": "Larg", "price": 10.99},
+    ],
     map: 2.4,
     counter: 0,
     calories: 4,
-    decription: "Pizza out fit low calories",
+    decription: "Delicious pizza",
     rate: 4.9,
-    check_size: false,
-    CategoryID: listCategory[0].id,
+    selectSizeIndex: -1,
+    CategoryID: 1,
   ),
   Productmodel(
-    id: 2,
+    id: 1,
     title: 'Shusi',
-    price: 8,
     img: 'assets/shusi.png',
-    size: ['Small','Mediem','Big'],
+    sizeOption: [
+      {"size": "small", "price": 8.99},
+      {"size": "Mediem", "price": 9.99},
+    ],
     map: 2.4,
     counter: 0,
     calories: 4,
-    decription: "Pizza out fit low calories",
+    decription: "Delicious pizza",
     rate: 4.9,
-    check_size: false,
-    CategoryID: listCategory[1].id,
+    selectSizeIndex: -1,
+    CategoryID: 1,
   ),
 ];
