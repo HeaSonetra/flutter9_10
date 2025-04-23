@@ -7,7 +7,7 @@ class Productmodel {
   final String img;
   final List<Map<String, dynamic>> sizeOption;
   final double map;
-  final int counter;
+  int counter;
   final double calories;
   final String decription;
   final double rate;
@@ -31,7 +31,7 @@ class Productmodel {
 
 List<Productmodel> listProduct = [
   Productmodel(
-    id: 1,
+    id: 0,
     title: 'Berger',
     img: 'assets/berger.png',
     sizeOption: [

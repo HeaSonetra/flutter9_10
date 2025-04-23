@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:firstapp/model/ProductAddModel.dart';
 import 'package:firstapp/model/ProductModel.dart';
+import 'package:firstapp/view/cartpage.dart';
+import 'package:firstapp/widget/addTocartWidget.dart';
 import 'package:firstapp/widget/isNotSelectedWidget.dart';
 import 'package:firstapp/widget/isSelectedWidget.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +17,7 @@ class Detailpage extends StatefulWidget {
 }
 
 var check = false;
+var indexSize;
 
 class _DetailpageState extends State<Detailpage> {
   @override
@@ -249,32 +252,36 @@ class _DetailpageState extends State<Detailpage> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(25),
-                      border: Border.all(width: 2,color: Colors.grey)
+                      border: Border.all(width: 2, color: Colors.grey),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Icon(Icons.delete),
-                        Text("1"),
-                        Icon(Icons.add),
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              if (widget.productmodel.counter > 1) {
+                                widget.productmodel.counter--;
+                              }
+                            });
+                          },
+                          child: Icon(Icons.delete),
+                        ),
+                        Text("${widget.productmodel.counter}"),
+                        InkWell(
+                          onTap: () {
+                            setState(() {
+                              widget.productmodel.counter++;
+                            });
+                          },
+                          child: Icon(Icons.add),
+                        ),
                       ],
                     ),
                   ),
                   SizedBox(width: 10),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16),
-                    width: 256,
-                    height: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Colors.green[600],
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                    child: Row(
-                      children: [
-                        Text("Add To Card -",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600),)
-                      ],
-                    ),
-                  ),
+                  //add to cart
+                  addTocart(context, listProduct[widget.productmodel.id], widget)
                 ],
               ),
             ),
