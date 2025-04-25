@@ -1,42 +1,52 @@
-
 import 'package:firstapp/model/ProductModel.dart';
 import 'package:firstapp/view/cartpage.dart';
 import 'package:flutter/material.dart';
 
-Widget addTocart(BuildContext context,Productmodel listProduct, dynamic widget){
+Widget addToCart(BuildContext context, Productmodel product) {
+  int selectedSizeIndex =
+  product.selectSizeIndex == -1 ? 0 : product.selectSizeIndex;
+  double price = product.sizeOption[selectedSizeIndex]["price"];
+  int quantity = product.counter > 0 ? product.counter : 1;
+  double totalPrice = price * quantity;
+
   return InkWell(
-                    onTap:
-                        () => Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Cartpage(productmodel: listProduct)),
-                        ),
-                    child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 16),
-                      width: 256,
-                      height: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Colors.green[600],
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      child: Row(
-                        children: [
-                          Text(
-                            "Add To Card -",
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          SizedBox(width: 20),
-                          Text(
-                            "\$${widget.productmodel.counter * widget.productmodel.sizeOption[widget.productmodel.selectSizeIndex == -1 ? widget.productmodel.selectSizeIndex = 0 : widget.productmodel.selectSizeIndex = widget.productmodel.selectSizeIndex]["price"]}",
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  );
+    onTap: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => Cartpage(productmodel: product),
+        ),
+      );
+    },
+    child: Container(
+      padding: EdgeInsets.symmetric(horizontal: 16),
+      width: 256,
+      height: double.infinity,
+      decoration: BoxDecoration(
+        color: Colors.green[600],
+        borderRadius: BorderRadius.circular(25),
+      ),
+      child: Row(
+        children: [
+          Text(
+            "Add To Cart -",
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+              color: Colors.black,
+            ),
+          ),
+          SizedBox(width: 20),
+          Text(
+            "\$${totalPrice.toStringAsFixed(2)}",
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+              color: Colors.black,
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
 }

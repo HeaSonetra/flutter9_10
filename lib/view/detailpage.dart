@@ -281,7 +281,7 @@ class _DetailpageState extends State<Detailpage> {
                   ),
                   SizedBox(width: 10),
                   //add to cart
-                  addTocart(context, listProduct[widget.productmodel.id], widget)
+                  addToCart(context,widget.productmodel)
                 ],
               ),
             ),
