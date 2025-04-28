@@ -27,6 +27,21 @@ class Productmodel {
     this.selectSizeIndex = -1,
     required this.CategoryID,
   });
+   Productmodel copy() {
+  return Productmodel(
+    id: id,
+    title: title,
+    img: img,
+    sizeOption: List<Map<String, dynamic>>.from(sizeOption),
+    map: map,
+    counter: counter,
+    calories: calories,
+    decription: decription,
+    rate: rate,
+    selectSizeIndex: selectSizeIndex,
+    CategoryID: CategoryID,
+  );
+}
 }
 
 List<Productmodel> listProduct = [

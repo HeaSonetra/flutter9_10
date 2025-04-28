@@ -1,7 +1,7 @@
 import 'package:firstapp/model/ProductModel.dart';
 import 'package:firstapp/view/cartpage.dart';
 import 'package:flutter/material.dart';
-
+List<Productmodel>  cartProduct=[];
 Widget addToCart(BuildContext context, Productmodel product) {
   int selectedSizeIndex =
   product.selectSizeIndex == -1 ? 0 : product.selectSizeIndex;
@@ -11,10 +11,11 @@ Widget addToCart(BuildContext context, Productmodel product) {
 
   return InkWell(
     onTap: () {
+      cartProduct.add(product.copy());
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => Cartpage(productmodel: product),
+          builder: (context) => Cartpage(cartProducts: cartProduct),
         ),
       );
     },
