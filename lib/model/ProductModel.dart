@@ -27,21 +27,21 @@ class Productmodel {
     this.selectSizeIndex = -1,
     required this.CategoryID,
   });
-   Productmodel copy() {
-  return Productmodel(
-    id: id,
-    title: title,
-    img: img,
-    sizeOption: List<Map<String, dynamic>>.from(sizeOption),
-    map: map,
-    counter: counter,
-    calories: calories,
-    decription: decription,
-    rate: rate,
-    selectSizeIndex: selectSizeIndex,
-    CategoryID: CategoryID,
-  );
-}
+  Productmodel copy() {
+    return Productmodel(
+      id: id,
+      title: title,
+      img: img,
+      sizeOption: List<Map<String, dynamic>>.from(sizeOption),
+      map: map,
+      counter: counter,
+      calories: calories,
+      decription: decription,
+      rate: rate,
+      selectSizeIndex: selectSizeIndex,
+      CategoryID: CategoryID,
+    );
+  }
 }
 
 List<Productmodel> listProduct = [
@@ -69,6 +69,23 @@ List<Productmodel> listProduct = [
     sizeOption: [
       {"size": "small", "price": 8.99},
       {"size": "Mediem", "price": 9.99},
+    ],
+    map: 2.4,
+    counter: 0,
+    calories: 4,
+    decription: "Delicious pizza",
+    rate: 4.9,
+    selectSizeIndex: -1,
+    CategoryID: 1,
+  ),
+  Productmodel(
+    id: 0,
+    title: 'Berger',
+    img: 'assets/berger.png',
+    sizeOption: [
+      {"size": "small", "price": 8.99},
+      {"size": "Mediem", "price": 9.99},
+      {"size": "Larg", "price": 10.99},
     ],
     map: 2.4,
     counter: 0,
