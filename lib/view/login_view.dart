@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:login_signup/controller/auth_controller.dart';
+import 'package:login_signup/view/signup_view.dart';
 import 'package:login_signup/widget/auth_text_field.dart';
 
 class LoginView extends StatelessWidget {
@@ -44,7 +45,16 @@ class LoginView extends StatelessWidget {
                           );
                         }, child: Text('Login',style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold),)
                       )
-                    )
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("Do you have an acount?"),
+                        TextButton(onPressed: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (_)=>SignupView()));
+                        }, child: Text('SignUp'))
+                      ],
+                    ),
             ],
           ),
         ),
