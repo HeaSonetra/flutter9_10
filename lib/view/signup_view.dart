@@ -54,6 +54,11 @@ class SignupView extends StatelessWidget {
                                 Get.snackbar('Error', 'Password do not match');
                                 return;
                               }
+                              _authController.signup(
+                                _emailController.text.trim(),
+                                _password.text.trim(),
+                                _confirmPassword.text.trim()
+                              );
                             },
                             child: Text("SignUp"),
                           ),
